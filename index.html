@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Installateur Zoggi | Gas Wasser Heizung</title>
+  <meta name="description" content="Ihr Fachmann für Gas-Wasser-Heizung. Zuverlässiger Notdienst und individuelle Heizlösungen.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      /* Color Palette */
+      --color-bg: #F4F4F6;
+      --color-surface: #FFFFFF;
+      --color-text: #111827;
+      --color-text-muted: #6B7280;
+      --color-accent: #DC2626;
+      --color-accent-hover: #B91C1C;
+      --color-highlight: #2563EB;
+      --color-dark: #111827;
+
+      /* Typography Scale */
+      --font-heading: 'Outfit', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --text-xs: clamp(0.75rem, 1.5vw, 0.875rem);
+      --text-sm: clamp(0.875rem, 1.8vw, 1rem);
+      --text-base: clamp(1rem, 2vw, 1.125rem);
+      --text-lg: clamp(1.125rem, 2.5vw, 1.375rem);
+      --text-xl: clamp(1.375rem, 3vw, 1.75rem);
+      --text-2xl: clamp(1.75rem, 4vw, 2.5rem);
+      --text-3xl: clamp(2.25rem, 5vw, 3.5rem);
+      --text-4xl: clamp(3rem, 7vw, 5rem);
+
+      /* Spacing Scale */
+      --space-1: 0.25rem;
+      --space-2: 0.5rem;
+      --space-3: 0.75rem;
+      --space-4: 1rem;
+      --space-6: 1.5rem;
+      --space-8: 2rem;
+      --space-12: 3rem;
+      --space-16: 4rem;
+      --space-24: 6rem;
+      --space-32: 8rem;
+
+      /* Z-Index Stack */
+      --z-base: 0;
+      --z-raised: 10;
+      --z-dropdown: 100;
+      --z-sticky: 200;
+      --z-overlay: 500;
+      --z-modal: 1000;
+      --z-toast: 2000;
+      --z-max: 9000;
+    }
+
+    /* Reset & Base */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+      font-size: 100%;
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--color-text);
+      background-color: var(--color-bg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--color-text);
+    }
+
+    h1, h2 {
+      letter-spacing: -0.02em;
+    }
+
+    p {
+      max-width: 65ch;
+      margin-bottom: var(--space-4);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Utilities */
+    .container {
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 var(--space-4);
+    }
+
+    .section-padding {
+      padding: clamp(4rem, 10vw, 8rem) 0;
+    }
+    
+    .w-100 {
+      width: 100%;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: var(--color-accent);
+      color: white;
+      padding: 8px;
+      z-index: var(--z-max);
+      transition: top 0.2s;
+    }
+    .skip-link:focus {
+      top: 0;
+    }
+
+    [data-lucide] {
+      display: inline-block;
+      vertical-align: middle;
+      flex-shrink: 0;
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45em;
+      padding: 1rem 2rem;
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: var(--text-base);
+      letter-spacing: 0.02em;
+      border: none;
+      border-radius: 0;
+      cursor: pointer;
+      position: relative;
+      z-index: var(--z-raised);
+      transition: all 0.2s ease;
+      text-transform: uppercase;
+    }
+
+    .btn-accent {
+      background-color: var(--color-accent);
+      color: var(--color-surface);
+    }
+    .btn-accent:hover {
+      background-color: var(--color-accent-hover);
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      color: var(--color-surface);
+      border: 2px solid var(--color-surface);
+    }
+    .btn-outline:hover {
+      background-color: var(--color-surface);
+      color: var(--color-text);
+    }
+
+    .btn-dark {
+      background-color: var(--color-text);
+      color: var(--color-surface);
+    }
+    .btn-dark:hover {
+      background-color: #000;
+    }
+
+    /* Header & Navigation */
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1001;
+      background-color: var(--color-surface);
+      border-bottom: 1px solid rgba(17, 24, 39, 0.05);
+      transition: padding 0.3s ease, box-shadow 0.3s ease;
+      padding: 1.25rem 0;
+    }
+    .site-header.scrolled {
+      padding: 0.75rem 0;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-family: var(--font-heading);
+      font-size: var(--text-xl);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--color-text);
+    }
+
+    .desktop-nav {
+      display: flex;
+      gap: var(--space-8);
+    }
+    .desktop-nav a {
+      font-weight: 500;
+      font-size: var(--text-sm);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .desktop-nav a:hover {
+      color: var(--color-accent);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+    }
+
+    /* Mobile Navigation */
+    .mobile-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: var(--color-surface);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .mobile-overlay.is-open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .mobile-nav {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-6);
+    }
+    .mobile-nav a {
+      font-family: var(--font-heading);
+      font-size: var(--text-2xl);
+      font-weight: 700;
+      padding: 1rem 0;
+    }
+
+    .nav-toggle {
+      position: absolute;
+      right: 1.25rem;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 1002;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+      display: none;
+      pointer-events: none;
+      width: 44px;
+      height: 44px;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--color-text);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      margin: 5px auto;
+    }
+    .nav-toggle.is-active span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+    .nav-toggle.is-active span:nth-child(2) {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+    .nav-toggle.is-active span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    @media (max-width: 768px) {
+      .desktop-nav, .header-actions {
+        display: none;
+      }
+      .nav-toggle {
+        display: block;
+        pointer-events: auto;
+      }
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background-color: var(--color-dark);
+      background-image: radial-gradient(circle at center, rgba(37, 99, 235, 0.1) 0%, transparent 60%),
+                        linear-gradient(to bottom, rgba(17, 24, 39, 0.8), rgba(17, 24, 39, 0.95));
+      color: var(--color-surface);
+      padding-top: var(--space-32);
+      padding-bottom: var(--space-16);
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+    }
+
+    .hero h1 {
+      font-size: var(--text-4xl);
+      color: var(--color-surface);
+      margin-bottom: var(--space-6);
+      text-transform: uppercase;
+    }
+
+    .hero p {
+      font-size: var(--text-xl);
+      color: #D1D5DB;
+      margin-bottom: var(--space-8);
+      max-width: 50ch;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-4);
+    }
+
+    /* Services Section */
+    .services {
+      background-color: var(--color-bg);
+      position: relative;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 0;
+    }
+
+    .services-content {
+      background: var(--color-surface);
+      padding: clamp(3rem, 6vw, 6rem);
+      margin-right: -4rem;
+      position: relative;
+      z-index: 10;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(17, 24, 39, 0.05);
+    }
+
+    .services-content h2 {
+      font-size: var(--text-3xl);
+      margin-bottom: var(--space-6);
+      text-transform: uppercase;
+    }
+
+    .services-content p {
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-8);
+    }
+
+    .services-image-wrapper {
+      position: relative;
+      height: 100%;
+      min-height: 500px;
+      z-index: 1;
+    }
+
+    .services-image-wrapper img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      box-shadow: -10px 20px 40px rgba(0,0,0,0.1);
+    }
+
+    @media (max-width: 1024px) {
+      .services-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-8);
+      }
+      .services-content {
+        margin-right: 0;
+        margin-bottom: -4rem;
+      }
+      .services-image-wrapper {
+        min-height: 400px;
+      }
+    }
+
+    /* Emergency Section */
+    .emergency {
+      background-color: var(--color-dark);
+      color: var(--color-surface);
+      text-align: center;
+      position: relative;
+    }
+
+    .emergency::after {
+      content: '';
+      position: absolute;
+      top: 0; right: 0; bottom: 0; left: 0;
+      background: radial-gradient(circle at 50% 0%, rgba(220, 38, 38, 0.15), transparent 70%);
+      pointer-events: none;
+    }
+
+    .emergency-content {
+      position: relative;
+      z-index: 2;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .emergency h2 {
+      font-size: var(--text-3xl);
+      color: var(--color-surface);
+      margin-bottom: var(--space-4);
+      text-transform: uppercase;
+    }
+
+    .emergency p {
+      color: #9CA3AF;
+      font-size: var(--text-lg);
+      margin: 0 auto var(--space-8);
+    }
+
+    .emergency .btn {
+      font-size: var(--text-lg);
+      padding: 1.25rem 2.5rem;
+      box-shadow: 0 10px 25px -5px rgba(220, 38, 38, 0.4);
+    }
+
+    /* Contact Section */
+    .contact {
+      background-color: var(--color-surface);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-16);
+    }
+
+    .contact-info h2 {
+      font-size: var(--text-3xl);
+      margin-bottom: var(--space-4);
+    }
+
+    .contact-info p {
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-8);
+    }
+
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+
+    .contact-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45em;
+      font-size: var(--text-lg);
+      font-weight: 500;
+    }
+
+    .contact-item i {
+      color: var(--color-accent);
+    }
+
+    .form-group {
+      margin-bottom: var(--space-4);
+    }
+
+    .form-label {
+      display: block;
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: var(--text-sm);
+      margin-bottom: var(--space-2);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 1rem;
+      border: 1px solid #E5E7EB;
+      background: var(--color-bg);
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      border-radius: 0;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .form-input:focus {
+      outline: none;
+      border-color: var(--color-text);
+      box-shadow: 0 0 0 1px var(--color-text);
+    }
+
+    .checkbox-group {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-top: var(--space-6);
+      margin-bottom: var(--space-6);
+    }
+
+    .checkbox-group input[type="checkbox"] {
+      margin-top: 0.25rem;
+      width: 1rem;
+      height: 1rem;
+      accent-color: var(--color-text);
+    }
+
+    .checkbox-group label {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      line-height: 1.4;
+    }
+
+    @media (max-width: 768px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Footer */
+    .site-footer {
+      background-color: #0B0F19;
+      color: #9CA3AF;
+      padding: clamp(4rem, 8vw, 7rem) 0 2rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: var(--space-12);
+      margin-bottom: var(--space-12);
+    }
+
+    .footer-brand .logo {
+      color: var(--color-surface);
+      margin-bottom: var(--space-4);
+      display: inline-block;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: var(--space-4);
+      margin-top: var(--space-6);
+    }
+
+    .footer-social a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border: 1px solid rgba(255,255,255,0.1);
+      color: var(--color-surface);
+      transition: all 0.2s ease;
+    }
+
+    .footer-social a:hover {
+      background: var(--color-surface);
+      color: var(--color-dark);
+      transform: translateY(-2px);
+    }
+
+    .footer-heading {
+      color: var(--color-surface);
+      font-family: var(--font-heading);
+      font-size: var(--text-lg);
+      margin-bottom: var(--space-6);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+
+    .footer-links a, .footer-links button {
+      background: none;
+      border: none;
+      color: inherit;
+      font-family: inherit;
+      font-size: inherit;
+      cursor: pointer;
+      text-align: left;
+      padding: 0;
+      transition: color 0.2s ease;
+    }
+
+    .footer-links a:hover, .footer-links button:hover {
+      color: var(--color-surface);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: var(--space-6);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+      font-size: var(--text-sm);
+    }
+
+    @media (max-width: 768px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Modals */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: var(--z-modal);
+      background: rgba(17, 24, 39, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-4);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      backdrop-filter: blur(4px);
+    }
+
+    .modal-overlay.is-open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-card {
+      background: var(--color-surface);
+      width: 100%;
+      max-width: 480px;
+      padding: var(--space-8);
+      position: relative;
+      transform: translateY(20px);
+      transition: transform 0.3s ease;
+    }
+
+    .modal-overlay.is-open .modal-card {
+      transform: translateY(0);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: transparent;
+      border: none;
+      color: var(--color-text-muted);
+      cursor: pointer;
+      padding: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: color 0.2s;
+    }
+
+    .modal-close:hover {
+      color: var(--color-accent);
+    }
+
+    .modal-title {
+      font-size: var(--text-2xl);
+      margin-bottom: var(--space-4);
+      padding-right: 2rem;
+    }
+
+    .modal-body {
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-6);
+    }
+
+    .modal-links {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+      margin-top: var(--space-4);
+    }
+
+    .modal-links a {
+      color: var(--color-text);
+      font-weight: 500;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    /* Cookie Banner */
+    .cookie-banner {
+      position: fixed;
+      bottom: var(--space-4);
+      right: var(--space-4);
+      left: var(--space-4);
+      max-width: 400px;
+      background: var(--color-surface);
+      border: 1px solid rgba(17, 24, 39, 0.1);
+      padding: var(--space-6);
+      z-index: var(--z-toast);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      transform: translateY(150%);
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .cookie-banner.is-visible {
+      transform: translateY(0);
+    }
+
+    .cookie-text {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-4);
+    }
+
+    .cookie-actions {
+      display: flex;
+      gap: var(--space-3);
+    }
+
+    .cookie-actions .btn {
+      flex: 1;
+      padding: 0.75rem;
+      font-size: var(--text-sm);
+    }
+
+    @media (min-width: 640px) {
+      .cookie-banner {
+        left: auto;
+      }
+    }
+
+    /* Scroll Reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+    }
+  </style>
+</head>
+<body>
+<!-- DEMO NOTICE BANNER - benedictjaros.com -->
+<style>
+#__demo_spacer{display:block;}
+#__demo_notice,#__demo_notice *{box-sizing:border-box;margin:0;padding:0;}
+#__demo_notice{
+  position:fixed;top:0;left:0;right:0;z-index:99999;
+  background:rgba(9,9,11,.97);
+  backdrop-filter:blur(14px) saturate(160%);
+  -webkit-backdrop-filter:blur(14px) saturate(160%);
+  border-bottom:1px solid rgba(255,255,255,.07);
+  font-family:system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;
+}
+#__demo_inner{
+  max-width:1280px;margin:0 auto;
+  padding:0 44px 0 18px;min-height:38px;
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+}
+#__demo_dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;background:#f5c842;box-shadow:0 0 7px rgba(245,200,66,.55);}
+#__demo_label{color:#f5c842;font-weight:700;font-size:10px;letter-spacing:.12em;text-transform:uppercase;flex-shrink:0;}
+#__demo_divider{color:rgba(255,255,255,.15);font-size:12px;flex-shrink:0;}
+#__demo_text{color:rgba(255,255,255,.45);font-size:11.5px;line-height:1.45;flex:1 1 160px;}
+#__demo_links{display:flex;align-items:center;gap:6px;flex-shrink:0;}
+#__demo_links a{
+  color:rgba(255,255,255,.38);font-size:11px;text-decoration:none;
+  border-bottom:1px solid rgba(255,255,255,.14);
+  transition:color .15s,border-color .15s;white-space:nowrap;
+}
+#__demo_links a:hover{color:rgba(255,255,255,.75);border-color:rgba(255,255,255,.4);}
+#__demo_link_sep{color:rgba(255,255,255,.15);font-size:10px;}
+#__demo_close{
+  position:absolute;right:0;top:0;bottom:0;width:40px;
+  background:none;border:none;cursor:pointer;
+  color:rgba(255,255,255,.28);font-size:16px;line-height:1;
+  display:flex;align-items:center;justify-content:center;
+  transition:color .15s;
+}
+#__demo_close:hover{color:rgba(255,255,255,.7);}
+@media(max-width:560px){
+  #__demo_inner{padding:7px 44px 7px 14px;gap:6px;}
+  #__demo_text{font-size:11px;flex:1 1 100%;order:3;}
+  #__demo_dot,#__demo_label{order:1;}
+  #__demo_divider{order:2;}
+  #__demo_links{order:4;}
+}
+</style>
+<div id="__demo_spacer"></div>
+<div id="__demo_notice" role="banner" aria-label="Demo notice">
+  <div id="__demo_inner">
+    <span id="__demo_dot"></span>
+    <span id="__demo_label">Demo</span>
+    <span id="__demo_divider">/</span>
+    <span id="__demo_text">Unofficial remake &mdash; not the real website. All content &amp; trademarks belong to their owners.</span>
+    <div id="__demo_links">
+      <a href="https://benedictjaros.com/impressum" target="_blank" rel="noopener noreferrer">Impressum</a>
+      <span id="__demo_link_sep">&middot;</span>
+      <a href="https://benedictjaros.com/datenschutz" target="_blank" rel="noopener noreferrer">Datenschutz</a>
+    </div>
+  </div>
+  <button id="__demo_close" aria-label="Close demo notice">&#x2715;</button>
+</div>
+<script>
+(function () {
+  var spacer = document.getElementById('__demo_spacer');
+  var b = document.getElementById('__demo_notice');
+  var x = document.getElementById('__demo_close');
+  if (!b || !spacer) return;
+  function sync() { spacer.style.height = b.offsetHeight + 'px'; }
+  function hide() {
+    b.style.display = 'none'; spacer.style.height = '0';
+    try { sessionStorage.setItem('__demo_closed', '1'); } catch (e) {}
+  }
+  try { if (sessionStorage.getItem('__demo_closed')) { b.style.display = 'none'; spacer.style.height = '0'; return; } } catch (e) {}
+  sync();
+  window.addEventListener('resize', function () { if (b.style.display !== 'none') sync(); });
+  if (x) x.addEventListener('click', hide);
+}());
+</script>
+
+
+  <a href="#main" class="skip-link">Zum Inhalt springen</a>
+
+  <header class="site-header" id="header">
+    <div class="container header-inner">
+      <a href="#" class="logo">Installateur Zoggi</a>
+      
+      <nav class="desktop-nav">
+        <a href="#leistungen">Leistungen</a>
+        <a href="#notdienst">Notdienst</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="tel:+43000000000" class="btn btn-accent">
+          <i data-lucide="phone"></i> 24h Notdienst
+        </a>
+      </div>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Menü öffnen" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-overlay" id="mobileOverlay">
+    <nav class="mobile-nav">
+      <a href="#leistungen" class="mobile-link">Leistungen</a>
+      <a href="#notdienst" class="mobile-link">Notdienst</a>
+      <a href="#kontakt" class="mobile-link">Kontakt</a>
+      <a href="tel:+43000000000" class="btn btn-accent" style="margin-top: 1rem;">
+        <i data-lucide="phone"></i> 24h Notdienst anrufen
+      </a>
+    </nav>
+  </div>
+
+  <main id="main">
+    
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content reveal">
+          <h1>Ihr Fachmann für Gas-Wasser-Heizung</h1>
+          <p>Präzise Handwerkskunst, zuverlässige Technik und schnelle Hilfe, wenn Sie sie am meisten brauchen.</p>
+          <div class="hero-buttons">
+            <a href="tel:+43000000000" class="btn btn-accent">
+              <i data-lucide="phone"></i> Notfall anrufen
+            </a>
+            <button type="button" class="btn btn-outline trigger-appointment">
+              Termin vereinbaren
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="leistungen" class="services section-padding">
+      <div class="container">
+        <div class="services-grid">
+          <div class="services-content reveal">
+            <h2>Individuelle Heizlösungen</h2>
+            <p>Willkommen bei Gas Wasser Heizung Einzelunternehmen! Hier finden Sie die neuesten Informationen über unsere Dienstleistungen. Unser Unternehmen wächst kontinuierlich und bietet Ihnen eine Vielzahl von Lösungen im Bereich Gas-, Wasser-, Heizung.</p>
+            <p>Unsere Mission ist es, Ihnen die besten Heizlösungen zu bieten, die auf Ihre individuellen Bedürfnisse zugeschnitten sind. Vertrauen Sie auf unsere Expertise für eine effiziente und langlebige Installation.</p>
+            <button type="button" class="btn btn-dark trigger-appointment" style="margin-top: 1rem;">
+              Jetzt Termin vereinbaren
+            </button>
+          </div>
+          <div class="services-image-wrapper reveal" style="--i: 1;">
+            <img src="https://www.installateur-zoggi.at/gallery_gen/3655bfded4c3a595ad4c05ec4353a51d_2010x2680_fit.jpg?ts=1746344427" alt="Komplexe Rohrleitungen und Heizungstechnik" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Emergency Section -->
+    <section id="notdienst" class="emergency section-padding">
+      <div class="container">
+        <div class="emergency-content reveal">
+          <h2>Zuverlässiger Notdienst</h2>
+          <p>Verstopfung? Kein Problem! Wir sind 24/7 für Sie da - schnell, sauber, zuverlässig. Rufen Sie uns an, bevor es überläuft!</p>
+          <a href="tel:+43000000000" class="btn btn-accent">
+            <i data-lucide="phone"></i> 24h Notdienst anrufen
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="kontakt" class="contact section-padding">
+      <div class="container">
+        <div class="contact-grid">
+          <div class="contact-info reveal">
+            <h2>Kontaktieren Sie uns</h2>
+            <p>Haben Sie Fragen zu unseren Leistungen oder benötigen Sie ein unverbindliches Angebot? Füllen Sie das Formular aus oder rufen Sie uns direkt an.</p>
+            
+            <div class="contact-details">
+              <div class="contact-item">
+                <i data-lucide="phone"></i>
+                <span>+43 (0) 000 000 000</span>
+              </div>
+              <div class="contact-item">
+                <i data-lucide="mail"></i>
+                <span>office@installateur-zoggi.at</span>
+              </div>
+              <div class="contact-item">
+                <i data-lucide="map-pin"></i>
+                <span>Musterstraße 1, 1010 Wien</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-form reveal" style="--i: 1;">
+            <form id="contactForm" onsubmit="event.preventDefault(); alert('Nachricht gesendet (Demo)');">
+              <div class="form-group">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" id="name" class="form-input" required placeholder="Ihr vollständiger Name">
+              </div>
+              <div class="form-group">
+                <label for="email" class="form-label">E-Mail</label>
+                <input type="email" id="email" class="form-input" required placeholder="ihre.email@beispiel.com">
+              </div>
+              <div class="form-group">
+                <label for="message" class="form-label">Nachricht</label>
+                <textarea id="message" class="form-input" rows="4" required placeholder="Wie können wir Ihnen helfen?"></textarea>
+              </div>
+              <div class="checkbox-group">
+                <input type="checkbox" id="gdpr" required>
+                <label for="gdpr">Ich stimme der Verarbeitung meiner Daten gemäß der Datenschutzerklärung zu.</label>
+              </div>
+              <button type="submit" class="btn btn-dark" id="submitBtn" disabled>
+                Nachricht senden
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="logo">Installateur Zoggi</a>
+          <p>Ihr zertifizierter Fachbetrieb für Gas, Wasser und Heizung. Präzision und Verlässlichkeit aus einer Hand.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Facebook"><i data-lucide="facebook"></i></a>
+            <a href="#" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-nav">
+          <h3 class="footer-heading">Navigation</h3>
+          <ul class="footer-links">
+            <li><a href="#leistungen">Leistungen</a></li>
+            <li><a href="#notdienst">Notdienst</a></li>
+            <li><a href="#kontakt">Kontakt</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-legal">
+          <h3 class="footer-heading">Rechtliches</h3>
+          <ul class="footer-links">
+            <li><button type="button" class="trigger-legal">Impressum</button></li>
+            <li><button type="button" class="trigger-legal">Datenschutz</button></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>© 2026 Installateur Zoggi — All original content, images & trademarks are property of their respective owners. Website rebuilt by Benedict Jaros.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Appointment Placeholder Modal -->
+  <div class="modal-overlay" id="modalAppointment" role="dialog" aria-modal="true" aria-labelledby="modalAppTitle">
+    <div class="modal-card">
+      <button class="modal-close" aria-label="Schließen" data-close="modalAppointment">
+        <i data-lucide="x"></i>
+      </button>
+      <h3 class="modal-title" id="modalAppTitle">Jetzt Termin vereinbaren</h3>
+      <p class="modal-body">This feature will be live once the website is launched and configured. Contact us in the meantime — we'd love to hear from you.</p>
+      <button class="btn btn-dark w-100" data-close="modalAppointment">Verstanden</button>
+    </div>
+  </div>
+
+  <!-- Legal Demo Modal -->
+  <div class="modal-overlay" id="modalLegal" role="dialog" aria-modal="true" aria-labelledby="modalLegalTitle">
+    <div class="modal-card">
+      <button class="modal-close" aria-label="Schließen" data-close="modalLegal">
+        <i data-lucide="x"></i>
+      </button>
+      <h3 class="modal-title" id="modalLegalTitle">Rechtliche Hinweise</h3>
+      <p class="modal-body">Diese Website ist ein Demo-Remake und wurde nicht von oder für das Unternehmen erstellt. Die Inhalte dienen ausschließlich Demonstrationszwecken. Für unsere eigenen rechtlichen Informationen:</p>
+      <div class="modal-links">
+        <a href="https://benedictjaros.com/impressum" target="_blank">Impressum</a>
+        <a href="https://benedictjaros.com/datenschutz" target="_blank">Datenschutz</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cookie Banner -->
+  <div class="cookie-banner" id="cookieBanner" role="region" aria-label="Cookie Einwilligung">
+    <p class="cookie-text">Wir verwenden Cookies, um Ihre Erfahrung auf unserer Website zu verbessern. Durch die Nutzung unserer Website stimmen Sie der Verwendung von Cookies zu.</p>
+    <div class="cookie-actions">
+      <button class="btn btn-dark" id="btnAcceptCookies">Akzeptieren</button>
+      <button class="btn btn-outline" style="color: var(--color-text); border-color: #E5E7EB;" id="btnDeclineCookies">Ablehnen</button>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script>
+    // Initialize Icons
+    lucide.createIcons();
+
+    // Sticky Header
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // Mobile Navigation
+    const navToggle = document.getElementById('navToggle');
+    const mobileOverlay = document.getElementById('mobileOverlay');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+
+    function toggleMenu() {
+      const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+      navToggle.setAttribute('aria-expanded', !isExpanded);
+      navToggle.classList.toggle('is-active');
+      mobileOverlay.classList.toggle('is-open');
+      document.body.style.overflow = isExpanded ? '' : 'hidden';
+    }
+
+    navToggle.addEventListener('click', toggleMenu);
+    mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobileOverlay.classList.contains('is-open')) {
+        toggleMenu();
+      }
+    });
+
+    // Scroll Reveal
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.12
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Modals
+    const modals = {
+      appointment: document.getElementById('modalAppointment'),
+      legal: document.getElementById('modalLegal')
+    };
+
+    function openModal(modalEl) {
+      modalEl.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal(modalEl) {
+      modalEl.classList.remove('is-open');
+      document.body.style.overflow = '';
+    }
+
+    // Triggers
+    document.querySelectorAll('.trigger-appointment').forEach(btn => {
+      btn.addEventListener('click', () => openModal(modals.appointment));
+    });
+
+    document.querySelectorAll('.trigger-legal').forEach(btn => {
+      btn.addEventListener('click', () => openModal(modals.legal));
+    });
+
+    // Close buttons
+    document.querySelectorAll('[data-close]').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const modalId = btn.getAttribute('data-close');
+        closeModal(document.getElementById(modalId));
+      });
+    });
+
+    // Close on backdrop click
+    Object.values(modals).forEach(modal => {
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal(modal);
+      });
+    });
+
+    // Close on Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        Object.values(modals).forEach(modal => {
+          if (modal.classList.contains('is-open')) closeModal(modal);
+        });
+      }
+    });
+
+    // Form GDPR validation
+    const gdprCheckbox = document.getElementById('gdpr');
+    const submitBtn = document.getElementById('submitBtn');
+    if(gdprCheckbox && submitBtn) {
+      gdprCheckbox.addEventListener('change', (e) => {
+        submitBtn.disabled = !e.target.checked;
+      });
+    }
+
+    // Cookie Banner Logic
+    const cookieBanner = document.getElementById('cookieBanner');
+    const btnAccept = document.getElementById('btnAcceptCookies');
+    const btnDecline = document.getElementById('btnDeclineCookies');
+
+    if (!localStorage.getItem('cookie_consent')) {
+      // Small delay for entrance animation
+      setTimeout(() => {
+        cookieBanner.classList.add('is-visible');
+      }, 1000);
+    }
+
+    function handleCookieChoice(choice) {
+      localStorage.setItem('cookie_consent', choice);
+      cookieBanner.classList.remove('is-visible');
+    }
+
+    btnAccept.addEventListener('click', () => handleCookieChoice('accepted'));
+    btnDecline.addEventListener('click', () => handleCookieChoice('declined'));
+
+  </script>
+</body>
+</html>
